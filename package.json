@@ -16,7 +16,7 @@
     "patch": "yarn version --new-version patch",
     "check": "tsc --noEmit",
     "push": "git push --no-verify",
-    "prepush": "yarn run patch & rm .git/refs/remotes/origin/master & git fetch & git push --no-verify"
+    "prepush": "yarn run patch & git gc --prune=now & git push --no-verify"
   },
   "devDependencies": {
     "husky": "^8.0.1",
