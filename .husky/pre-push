@@ -3,4 +3,4 @@
 . "$(dirname "$0")/common.sh"
 
 
-yarn run prepush2
+yarn run prepush
