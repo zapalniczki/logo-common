@@ -18,6 +18,11 @@ jobs:
       - run: npm run build
       - run: dir
 
+      - uses: actions/upload-artifact@v1
+        with:
+          name: buildOutcome
+          path: dist
+
   # publish-gpr:
   #   needs: build
   #   runs-on: ubuntu-latest
