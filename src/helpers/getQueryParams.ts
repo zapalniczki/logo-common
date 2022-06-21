@@ -1,5 +1,5 @@
 import { ZodEnum, ZodObject, ZodRawShape } from 'zod'
-import { paginator } from '../models'
+import { paginator } from 'models'
 import getSortingQuery from './getSortingQuery'
 
 function getQueryParams<

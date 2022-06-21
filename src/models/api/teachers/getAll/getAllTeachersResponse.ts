@@ -1,11 +1,7 @@
 import { enum as zenum, object, TypeOf } from 'zod'
-import { sql } from '../../../../config'
-import { DB_TABLES } from '../../../../constants'
-import {
-  getQueryParams,
-  getSortingOrder,
-  getSortingQuery
-} from '../../../../helpers'
+import { sql } from 'config'
+import { DB_TABLES } from 'constants'
+import { getQueryParams, getSortingOrder, getSortingQuery } from 'helpers'
 import { school } from '../../../db'
 
 const sortingKeys = zenum(['SURNAME', 'EMAIL', 'EMAIL_CONFIRMED', 'CREATED_AT'])

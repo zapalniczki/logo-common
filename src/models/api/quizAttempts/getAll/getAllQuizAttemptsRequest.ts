@@ -1,5 +1,5 @@
 import { enum as zenum, object, TypeOf } from 'zod'
-import { getQueryParams } from '../../../../helpers'
+import { getQueryParams } from 'helpers'
 import { quizAssignment, student } from '../../../db'
 
 const sortingKeys = zenum(['DISPLAY_NAME', 'INDEX'])

@@ -1,6 +1,6 @@
 import { date, object, TypeOf } from 'zod'
 import { quizAttemptResult } from '../../..'
-import { getListResponseBody } from '../../../../helpers'
+import { getListResponseBody } from 'helpers'
 import {
   answerAttempt,
   quizAttempt,
