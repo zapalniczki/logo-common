@@ -34,6 +34,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 12
+          registry-url: https://npm.pkg.github.com/
 
       - uses: actions/download-artifact@v1.0.0
         with:
