@@ -39,6 +39,8 @@ jobs:
           name: buildOutcome
           path: ./dir
 
+      - run: dir
+
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GH_ACCESS_TOKEN}}
