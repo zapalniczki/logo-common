@@ -9,7 +9,7 @@
     "minor": "yarn version --new-version minor",
     "patch": "yarn version --new-version patch",
     "check": "tsc --noEmit",
-    "release": "yarn run build & git add . & git commit -m \"Build\" & yarn run patch & git push"
+    "release": "yarn run patch & git push"
   },
   "devDependencies": {
     "typescript": "^4.7.4",
