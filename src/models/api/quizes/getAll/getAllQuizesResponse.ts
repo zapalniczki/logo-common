@@ -2,7 +2,7 @@ import { object, number, TypeOf } from 'zod'
 import { quiz } from '../../../models'
 import { getListResponseBody } from '../../../utils'
 
-export const schema = object({
+export const getAllQuizesResponseSchema = object({
   name: quiz.shape.name,
   category: quiz.shape.category,
   id: quiz.shape.id,
@@ -12,6 +12,8 @@ export const schema = object({
   attempt_count: number().optional()
 })
 
-export const responseBody = getListResponseBody(schema)
+export const getAllQuizesResponse = getListResponseBody(
+  getAllQuizesResponseSchema
+)
 
-export type ResponseBody = TypeOf<typeof responseBody>
+export type GetAllQuizesResponse = TypeOf<typeof getAllQuizesResponse>

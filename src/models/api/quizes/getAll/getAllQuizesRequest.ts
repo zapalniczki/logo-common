@@ -15,8 +15,8 @@ const querySchema = object({
   level: quiz.shape.level.optional()
 })
 
-export const queryParams = getQueryParams(querySchema, sortingKeys)
-export type QueryParams = TypeOf<typeof queryParams>
+export const getAllQuizesRequest = getQueryParams(querySchema, sortingKeys)
+export type GetAllQuizesRequest = TypeOf<typeof getAllQuizesRequest>
 
 export function getSorting<T extends SortingQuery>(params: T) {
   const sortBy = params.sort_by
@@ -32,7 +32,7 @@ export function getSorting<T extends SortingQuery>(params: T) {
   }
 }
 
-export const getFiltersQuery = (query: QueryParams) => {
+export const getFiltersQuery = (query: GetAllQuizesRequest) => {
   if (query.quizCategory && query.level) {
     return sql`
       WHERE

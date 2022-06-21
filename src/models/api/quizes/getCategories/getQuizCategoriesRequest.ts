@@ -9,6 +9,6 @@ const filtersSchema = object({
   level: number().optional()
 })
 
-export const queryParams = schema.merge(filtersSchema)
+export const getQuizCategoriesRequest = schema.merge(filtersSchema)
 
-export type QueryParams = TypeOf<typeof queryParams>
+export type GetQuizCategoriesRequest = TypeOf<typeof getQuizCategoriesRequest>
