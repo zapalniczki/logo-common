@@ -13,9 +13,9 @@ jobs:
         with:
           node-version: 12
       - run: npm install
-      - run: cd dir
+      - run: dir
       - run: npm build
-      - run: cd dir
+      - run: dir
 
   # publish-gpr:
   #   needs: build
