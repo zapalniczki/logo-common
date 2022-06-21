@@ -1,6 +1,6 @@
+import { DB_TABLES } from '@zapalniczki/logo-common'
 import { enum as zenum, object, TypeOf } from 'zod'
 import { sql } from '../../../config'
-import { DB_TABLES, ENDPOINTS } from '@zapalniczki/logo-common'
 import { quizInstance } from '../../../models'
 import { getQueryParams, getSortingQuery } from '../../../utils'
 import getSortingOrder from '../../../utils/getSortingOrder'
@@ -14,8 +14,13 @@ const querySchema = object({
   teacher_id: quizInstance.shape.teacher_id
 })
 
-export const queryParams = getQueryParams(querySchema, sortingKeys)
-export type QueryParams = TypeOf<typeof queryParams>
+export const getAllQuizInstancesRequest = getQueryParams(
+  querySchema,
+  sortingKeys
+)
+export type GetAllQuizInstancesRequest = TypeOf<
+  typeof getAllQuizInstancesRequest
+>
 
 export function getSorting<T extends SortingQuery>(params: T) {
   const sortBy = params.sort_by

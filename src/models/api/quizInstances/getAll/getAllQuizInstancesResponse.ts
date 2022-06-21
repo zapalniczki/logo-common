@@ -2,7 +2,7 @@ import { number, object, TypeOf } from 'zod'
 import { quizInstance } from '../../../models'
 import { getListResponseBody } from '../../../utils'
 
-export const schema = object({
+export const getAllQuizInstancesResponseSchema = object({
   id: quizInstance.shape.id,
   name: quizInstance.shape.name,
   index: quizInstance.shape.index,
@@ -10,6 +10,10 @@ export const schema = object({
   use_count: number()
 })
 
-export const responseBody = getListResponseBody(schema)
+export const getAllQuizInstancesResponse = getListResponseBody(
+  getAllQuizInstancesResponseSchema
+)
 
-export type ResponseBody = TypeOf<typeof responseBody>
+export type GetAllQuizInstancesResponse = TypeOf<
+  typeof getAllQuizInstancesResponse
+>
