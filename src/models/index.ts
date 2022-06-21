@@ -2,6 +2,7 @@ import { number, object, TypeOf, enum as zenum, boolean } from 'zod'
 
 export * from './db'
 export * from './dbEnums'
+export * from './api'
 
 export const paginator = object({
   limit: number().optional(),
