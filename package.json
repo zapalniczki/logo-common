@@ -16,10 +16,9 @@
     "patch": "yarn version --new-version patch",
     "check": "tsc --noEmit",
     "push": "git push --no-verify",
-    "prepush": "echo 'pre-patch' && yarn run patch && echo 'post-patch' && echo 'pre-pull' && git pull && echo 'post-pull' && echo 'pre-merge' && git merge origin/master && echo 'post-merge' && echo 'pre-push' && git log master...origin/master && git push --no-verify && echo 'post-push' && git log master...origin/master"
+    "prepush": "yarn run patch & git push --no-verify"
   },
   "devDependencies": {
-    "husky": "^8.0.1",
     "typescript": "^4.7.4",
     "zod": "^3.17.3"
   }
