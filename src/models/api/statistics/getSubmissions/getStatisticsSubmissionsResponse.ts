@@ -1,14 +1,14 @@
 import { date, object, TypeOf } from 'zod'
+import { quizAttemptResult } from '../../..'
+import { getListResponseBody } from '../../../../helpers'
 import {
   answerAttempt,
-  question,
-  quiz,
-  quizAssignment,
   quizAttempt,
-  quizAttemptResult,
+  quizAssignment,
+  quiz,
+  question,
   student
-} from '../../../models'
-import { getListResponseBody } from '../../../utils'
+} from '../../../db'
 
 export const getStatisticsSubmissionsResponseAttemptsWithScore = object({
   score: answerAttempt.shape.score,

@@ -1,5 +1,5 @@
 import { number, object, TypeOf } from 'zod'
-import { teacher } from '../../../models'
+import { teacher } from '../../../db'
 
 const schema = object({
   teacher_id: teacher.shape.id

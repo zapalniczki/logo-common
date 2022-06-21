@@ -1,5 +1,5 @@
 import { object, string, TypeOf } from 'zod'
-import { quiz, quizAssignment, quizInstance } from '../../../models'
+import { quiz, quizAssignment, quizInstance } from '../../../db'
 
 export const getQuizAssignmentDetailsResponse = object({
   id: quizAssignment.shape.id,

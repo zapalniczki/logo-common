@@ -1,6 +1,6 @@
 import { literal, number, object, TypeOf } from 'zod'
-import { quiz, quizAssignment } from '../../../models'
-import { getListResponseBody } from '../../../utils'
+import { getListResponseBody } from '../../../../helpers'
+import { quiz, quizAssignment } from '../../../db'
 
 const baseSchema = object({
   quiz_name: quiz.shape.name,

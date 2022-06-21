@@ -1,9 +1,12 @@
-import { DB_TABLES } from '@zapalniczki/logo-common'
 import { enum as zenum, object, TypeOf } from 'zod'
-import { sql } from '../../../config'
-import { student, teacher } from '../../../models'
-import { getQueryParams, getSortingQuery } from '../../../utils'
-import getSortingOrder from '../../../utils/getSortingOrder'
+import { sql } from '../../../../config'
+import { DB_TABLES } from '../../../../constants'
+import {
+  getSortingQuery,
+  getQueryParams,
+  getSortingOrder
+} from '../../../../helpers'
+import { teacher, student } from '../../../db'
 
 const sortingKeys = zenum(['COMPLETED_AT'])
 const sortingQuery = getSortingQuery(sortingKeys)

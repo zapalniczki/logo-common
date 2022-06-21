@@ -1,6 +1,6 @@
 import { object, number, TypeOf } from 'zod'
-import { quiz } from '../../../models'
-import { getListResponseBody } from '../../../utils'
+import { getListResponseBody } from '../../../../helpers'
+import { quiz } from '../../../db'
 
 export const getAllQuizesResponseSchema = object({
   name: quiz.shape.name,

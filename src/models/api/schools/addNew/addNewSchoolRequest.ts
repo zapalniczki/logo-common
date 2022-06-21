@@ -1,5 +1,5 @@
 import { TypeOf } from 'zod'
-import { school } from '../../../models'
+import { school } from '../../../db'
 
 export const addNewSchoolRequest = school.omit({
   created_at: true,

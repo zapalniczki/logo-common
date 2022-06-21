@@ -1,6 +1,6 @@
 import { object, string, TypeOf } from 'zod'
-import { cohort, student } from '../../../models'
-import { getListResponseBody } from '../../../utils'
+import { getListResponseBody } from '../../../../helpers'
+import { student, cohort } from '../../../db'
 
 const schema = object({
   name: student.shape.name,

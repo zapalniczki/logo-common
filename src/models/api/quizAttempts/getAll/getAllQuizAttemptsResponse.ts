@@ -1,6 +1,6 @@
 import { enum as zenum, number, object, TypeOf } from 'zod'
 import { quizAttemptResult } from '../../..'
-import { getListResponseBody } from '../../../../helpers'
+import { getListResponseBody, getPermissionsSchema } from '../../../../helpers'
 import { answerAttempt, question, quizAttempt } from '../../../db'
 
 const schema = object({

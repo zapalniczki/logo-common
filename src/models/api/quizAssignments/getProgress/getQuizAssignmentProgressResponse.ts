@@ -1,5 +1,5 @@
 import { array, date, number, object, TypeOf } from 'zod'
-import { quizAttempt, student } from '../../../models'
+import { quizAttempt, student } from '../../../db'
 
 export const getQuizAssignmentProgressResponseSchema = object({
   id: student.shape.id,
