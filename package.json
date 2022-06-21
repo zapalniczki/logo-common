@@ -8,14 +8,22 @@
   "files": [
     "dist/*"
   ],
+  "husky": {
+    "hooks": {
+      "pre-push": "dir"
+    }
+  },
   "scripts": {
+    "prepare": "husky install",
     "build": "tsc",
     "minor": "yarn version --new-version minor",
     "patch": "yarn version --new-version patch",
     "check": "tsc --noEmit",
-    "release": "yarn run patch & git push"
+    "release": "yarn run patch & git push",
+    "prepush": "dir"
   },
   "devDependencies": {
+    "husky": "^8.0.1",
     "typescript": "^4.7.4",
     "zod": "^3.17.3"
   }
