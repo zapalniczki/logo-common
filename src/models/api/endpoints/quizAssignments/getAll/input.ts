@@ -1,0 +1,55 @@
+import { enum as zenum, object, TypeOf } from 'zod'
+import { sql } from '../../../config'
+import { DB_TABLES, ENDPOINTS } from '@zapalniczki/logo-common'
+import { student, teacher } from '../../../models'
+import { getQueryParams, getSortingQuery } from '../../../utils'
+import getSortingOrder from '../../../utils/getSortingOrder'
+
+const sortingKeys = zenum(['NAME', 'QUIZ_NAME', 'CREATED_AT', 'DUE_DATE'])
+const sortingQuery = getSortingQuery(sortingKeys)
+type SortingQuery = TypeOf<typeof sortingQuery>
+
+const querySchema = object({
+  teacher_id: teacher.shape.id.optional(),
+  student_id: student.shape.id.optional()
+})
+
+export const queryParams = getQueryParams(querySchema, sortingKeys)
+export type QueryParams = TypeOf<typeof queryParams>
+
+export function getSorting<T extends SortingQuery>(params: T) {
+  const sortBy = params.sort_by
+  const sortOrder = getSortingOrder(params.sort_order)
+
+  switch (sortBy) {
+    case 'NAME':
+      return sql`
+        ORDER BY
+          ${sql(DB_TABLES.QUIZ_ASSIGNMENTS)}.name ${sortOrder}
+      `
+
+    case 'QUIZ_NAME':
+      return sql`
+        ORDER BY
+          ${sql(DB_TABLES.QUIZES)}.name ${sortOrder}
+      `
+
+    case 'CREATED_AT':
+      return sql`
+        ORDER BY
+          ${sql(DB_TABLES.QUIZ_ASSIGNMENTS)}.created_at ${sortOrder}
+      `
+
+    case 'DUE_DATE':
+      return sql`
+        ORDER BY
+          ${sql(DB_TABLES.QUIZ_ASSIGNMENTS)}.due_date ${sortOrder}
+      `
+
+    default:
+      return sql`
+        ORDER BY
+          ${sql(DB_TABLES.QUIZ_ASSIGNMENTS)}.due_date ASC
+      `
+  }
+}
