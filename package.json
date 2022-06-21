@@ -3,7 +3,7 @@
   "version": "1.0.30",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "license": "NONE",
+  "license": "MIT",
   "repository": "git://github.com/zapalniczki/logo-common.git",
   "files": [
     "dist/*"
