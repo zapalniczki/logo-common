@@ -4,7 +4,6 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
-  "dependencies": {},
   "scripts": {
     "build": "tsc",
     "minor": "yarn version --new-version minor",
