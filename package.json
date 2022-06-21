@@ -14,7 +14,7 @@
     "minor": "yarn version --new-version minor",
     "patch": "yarn version --new-version patch",
     "check": "tsc --noEmit",
-    "release": "yarn run patch & git push",
+    "release2": "yarn run patch & git push",
     "prepush2": "git --help"
   },
   "devDependencies": {
