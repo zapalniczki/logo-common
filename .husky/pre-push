@@ -5,3 +5,4 @@
 
 yarn run lint
 yarn run patch
+npm test
