@@ -8,13 +8,8 @@
   "files": [
     "dist/*"
   ],
-  "husky": {
-    "hooks": {
-      "pre-push": "dir"
-    }
-  },
   "scripts": {
-    "prepare": "husky install",
+    "postinstall": "husky install",
     "build": "tsc",
     "minor": "yarn version --new-version minor",
     "patch": "yarn version --new-version patch",
