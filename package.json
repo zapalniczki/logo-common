@@ -15,8 +15,8 @@
     "minor": "yarn version --new-version minor",
     "patch": "yarn version --new-version patch",
     "check": "tsc --noEmit",
-    "release2": "yarn run patch & git push",
-    "prepush": "yarn run patch & git push --no-verify"
+    "push": "git push --no-verify",
+    "prepush": "yarn run patch & yarn run push"
   },
   "devDependencies": {
     "husky": "^8.0.1",
