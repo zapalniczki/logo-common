@@ -39,7 +39,7 @@ jobs:
       - uses: actions/download-artifact@v1.0.0
         with:
           name: buildOutcome
-          path: ./
+          path: ./dir
 
       - run: dir
       # - run: npm install
