@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  BUILD:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,17 +14,15 @@ jobs:
           node-version: 12
 
       - run: npm install
-      - run: dir
       - run: npm run build
-      - run: dir
 
       - uses: actions/upload-artifact@v1
         with:
           name: buildOutcome
           path: dist
 
-  publish-gpr:
-    needs: build
+  PUBLISH_PACKAGE:
+    needs: BUILD
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -41,9 +39,6 @@ jobs:
           name: buildOutcome
           path: ./dir
 
-      - run: dir
-      # - run: npm install
-      # - run: npm ci
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GH_ACCESS_TOKEN}}
