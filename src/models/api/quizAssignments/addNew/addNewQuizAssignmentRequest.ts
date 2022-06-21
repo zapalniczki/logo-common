@@ -1,7 +1,7 @@
 import { object, string, TypeOf } from 'zod'
 import { quizAssignment } from '../../../models'
 
-export const requestBody = object({
+export const addNewQuizAssignmentRequest = object({
   teacher_id: quizAssignment.shape.teacher_id,
   quiz_id: quizAssignment.shape.quiz_id,
   quiz_instance_id: quizAssignment.shape.id.optional(),
@@ -17,4 +17,6 @@ export const requestBody = object({
   due_date: string()
 })
 
-export type RequestBody = TypeOf<typeof requestBody>
+export type AddNewQuizAssignmentRequest = TypeOf<
+  typeof addNewQuizAssignmentRequest
+>

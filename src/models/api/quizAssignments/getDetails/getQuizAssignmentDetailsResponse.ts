@@ -1,7 +1,7 @@
 import { object, string, TypeOf } from 'zod'
 import { quiz, quizAssignment, quizInstance } from '../../../models'
 
-export const responseBody = object({
+export const getQuizAssignmentDetailsResponse = object({
   id: quizAssignment.shape.id,
   name: quizAssignment.shape.name,
   created_at: quizAssignment.shape.created_at,
@@ -20,4 +20,6 @@ export const responseBody = object({
   due_date: quizAssignment.shape.due_date
 })
 
-export type ResponseBody = TypeOf<typeof responseBody>
+export type GetQuizAssignmentDetailsResponse = TypeOf<
+  typeof getQuizAssignmentDetailsResponse
+>
