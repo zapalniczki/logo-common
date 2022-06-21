@@ -15,7 +15,7 @@
     "patch": "yarn version --new-version patch",
     "check": "tsc --noEmit",
     "release2": "yarn run patch & git push",
-    "prepush2": "git --help"
+    "prepush2": "yarn run patch"
   },
   "devDependencies": {
     "husky": "^8.0.1",
