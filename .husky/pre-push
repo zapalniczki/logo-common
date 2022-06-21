@@ -3,6 +3,4 @@
 . "$(dirname "$0")/common.sh"
 
 
-yarn run lint
-yarn run patch
-npm test
+yarn run prepush2
