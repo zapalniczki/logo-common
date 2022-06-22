@@ -1,4 +1,4 @@
-import { getQueryParams, getSortingQuery } from 'helpers'
+import { getQueryParams, getSortingQuery } from '../../../../helpers'
 import { enum as zenum, object, TypeOf } from 'zod'
 import { quizInstance } from '../../../db'
 

@@ -1,5 +1,5 @@
 import { TypeOf } from 'zod'
-import { getListResponseBody } from 'helpers'
+import { getListResponseBody } from '../../../../helpers'
 import { teacher } from '../../../db'
 
 const schema = teacher.pick({

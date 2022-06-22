@@ -1,5 +1,5 @@
 import { number, object, string, TypeOf } from 'zod'
-import { getListResponseBody } from 'helpers'
+import { getListResponseBody } from '../../../../helpers'
 import { cohort, group } from '../../../db'
 
 const schema = object({

@@ -1,5 +1,5 @@
 import { object, number, TypeOf } from 'zod'
-import { getListResponseBody } from 'helpers'
+import { getListResponseBody } from '../../../../helpers'
 import { quiz } from '../../../db'
 
 export const getAllQuizesResponseSchema = object({

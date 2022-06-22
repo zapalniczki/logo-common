@@ -1,7 +1,5 @@
-import { object, TypeOf, enum as zenum } from 'zod'
-import { sql } from 'config'
-import { DB_TABLES } from 'constants'
-import { getQueryParams, getSortingOrder, getSortingQuery } from 'helpers'
+import { getQueryParams, getSortingQuery } from '../../../../helpers'
+import { enum as zenum, object, TypeOf } from 'zod'
 import { school, teacher } from '../../../db'
 
 const sortingKeys = zenum(['LEVEL', 'LETTER'])

@@ -1,8 +1,6 @@
+import { getQueryParams, getSortingQuery } from '../../../../helpers'
 import { enum as zenum, object, TypeOf } from 'zod'
-import { sql } from 'config'
-import { DB_TABLES } from 'constants'
-import { getSortingQuery, getQueryParams, getSortingOrder } from 'helpers'
-import { teacher, student } from '../../../db'
+import { student, teacher } from '../../../db'
 
 const sortingKeys = zenum(['COMPLETED_AT'])
 const sortingQuery = getSortingQuery(sortingKeys)
