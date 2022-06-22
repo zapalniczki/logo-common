@@ -1,5 +1,5 @@
 import { sql } from 'config'
-import { SortingOrder } from 'models'
+import { SortingOrder } from '../models'
 
 const getSortingOrder = (sortingOrder: SortingOrder) => {
   if (sortingOrder === 'ASC') {

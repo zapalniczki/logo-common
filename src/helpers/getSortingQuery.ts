@@ -1,5 +1,5 @@
 import { object, ZodEnum } from 'zod'
-import { sortingOrder } from 'models'
+import { sortingOrder } from '../models'
 
 function getSortingQuery<T extends ZodEnum<[string, ...string[]]>>(
   sortingKeys: T
