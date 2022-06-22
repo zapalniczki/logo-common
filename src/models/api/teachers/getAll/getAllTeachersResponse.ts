@@ -8,6 +8,6 @@ const schema = teacher.pick({
   id: true
 })
 
-export const getAllTeachersRequest = getListResponseBody(schema)
+export const getAllTeachersResponse = getListResponseBody(schema)
 
-export type GetAllTeachersRequest = TypeOf<typeof getAllTeachersRequest>
+export type GetAllTeachersResponse = TypeOf<typeof getAllTeachersResponse>
