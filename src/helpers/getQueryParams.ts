@@ -7,7 +7,8 @@ function getQueryParams<
   U extends ZodEnum<[string, ...string[]]>
 >(schema: ZodObject<T>, sortingKeys: U) {
   const sortingQuery = getSortingQuery(sortingKeys)
-  const queryParams = schema.merge(paginator).merge(sortingQuery)
+  const queryParams = schema.merge(paginator)
+  // .merge(sortingQuery)
 
   return queryParams
 }
