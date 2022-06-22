@@ -1,4 +1,4 @@
-import { sql } from 'config'
+import { sql } from '../config'
 import { SortingOrder } from '../models'
 
 const getSortingOrder = (sortingOrder: SortingOrder) => {
