@@ -15,23 +15,3 @@ const querySchema = object({
 
 export const getAllGroupsRequest = getQueryParams(querySchema, sortingKeys)
 export type GetAllGroupsRequest = TypeOf<typeof getAllGroupsRequest>
-
-export function getSorting<T extends SortingQuery>(params: T) {
-  const sortBy = params.sort_by
-  const sortOrder = getSortingOrder(params.sort_order)
-
-  switch (sortBy) {
-    default:
-    case 'LEVEL':
-      return sql`
-        ORDER BY
-          ${sql(DB_TABLES.GROUPS)}.level ${sortOrder}
-      `
-
-    case 'LETTER':
-      return sql`
-        ORDER BY
-          ${sql(DB_TABLES.GROUPS)}.letter ${sortOrder}
-      `
-  }
-}

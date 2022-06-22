@@ -20,22 +20,3 @@ export const getStatisticsSubmissionsRequest = getQueryParams(
 export type GetStatisticsSubmissionsRequest = TypeOf<
   typeof getStatisticsSubmissionsRequest
 >
-
-export function getSorting<T extends SortingQuery>(params: T) {
-  const sortBy = params.sort_by
-  const sortOrder = getSortingOrder(params.sort_order)
-
-  switch (sortBy) {
-    case 'COMPLETED_AT':
-      return sql`
-        ORDER BY
-          ${sql(DB_TABLES.QUIZ_ATTEMPTS)}.completed_at ${sortOrder}
-      `
-
-    default:
-      return sql`
-            ORDER BY
-              ${sql(DB_TABLES.QUIZ_ATTEMPTS)}.completed_at DESC
-          `
-  }
-}
