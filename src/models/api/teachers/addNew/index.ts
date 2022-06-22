@@ -1,1 +1,1 @@
-export * from './addNewTeacherResponse'
+export * from './addNewTeacherRequest'
