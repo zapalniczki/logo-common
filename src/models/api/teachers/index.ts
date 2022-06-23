@@ -1,3 +1,4 @@
 export * from './getDetails'
 export * from './getAll'
-export * from './addNew'
+export * from './add'
+export * from './edit'

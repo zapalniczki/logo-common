@@ -1,7 +1,7 @@
 import { TypeOf } from 'zod'
 import { teacher } from '../../../db'
 
-export const addNewTeacherRequest = teacher.omit({
+export const addTeacherRequest = teacher.omit({
   created_at: true,
   updated_at: true,
   id: true,
@@ -9,4 +9,4 @@ export const addNewTeacherRequest = teacher.omit({
   blocked: true
 })
 
-export type AddNewTeacherRequest = TypeOf<typeof addNewTeacherRequest>
+export type AddTeacherRequest = TypeOf<typeof addTeacherRequest>
