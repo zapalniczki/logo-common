@@ -7,7 +7,6 @@ export const editTeacherRequest = teacher
     updated_at: true,
     school_id: true,
     email_confirmed: true,
-    blocked: true,
     id: true
   })
   .partial()
