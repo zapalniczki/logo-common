@@ -5,7 +5,8 @@ const getTeacherDetailsResponsePermissions = zenum([
   'DELETE',
   'BLOCK',
   'UNBLOCK',
-  'EDIT'
+  'EDIT',
+  'SEND_ACTIVATION'
 ])
 
 export type GetTeacherDetailsResponsePermissions = TypeOf<
