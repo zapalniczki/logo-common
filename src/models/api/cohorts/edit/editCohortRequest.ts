@@ -2,8 +2,7 @@ import { object, TypeOf } from 'zod'
 import { cohort } from '../../../db'
 
 export const editCohortRequest = object({
-  year: cohort.shape.year,
-  is_current: cohort.shape.is_current
+  year: cohort.shape.year
 })
   .partial()
   .merge(cohort.pick({ id: true }))

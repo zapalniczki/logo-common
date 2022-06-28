@@ -1,8 +1,9 @@
 const COHORTS = {
+  add: '/Cohorts/add',
+  delete: '/Cohorts/delete',
+  edit: '/Cohorts/edit',
   getAll: '/Cohorts/getAll',
   getDetails: '/Cohorts/getDetails',
-  edit: '/Cohorts/edit',
-  delete: '/Cohorts/delete',
   makeCurrent: '/Cohorts/make-current'
 } as const
 
