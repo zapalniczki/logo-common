@@ -14,7 +14,8 @@ export type GetCohortDetailsResponsePermissions = TypeOf<
 export const getCohortDetailsResponseSchema = cohort
   .pick({
     year: true,
-    is_current: true
+    is_current: true,
+    id: true
   })
   .extend({
     group_count: number()
