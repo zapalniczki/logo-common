@@ -1,9 +1,9 @@
 import { object, TypeOf } from 'zod'
-import { cohort, school } from '../../../db'
+import { cohort } from '../../../db'
 
 export const addCohortRequest = object({
   year: cohort.shape.year,
-  school_id: school.shape.id
+  school_id: cohort.shape.school_id
 })
 
 export type AddCohortRequest = TypeOf<typeof addCohortRequest>
