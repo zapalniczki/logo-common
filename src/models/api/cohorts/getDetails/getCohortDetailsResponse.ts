@@ -15,8 +15,8 @@ export const getCohortDetailsResponseSchema = cohort
   .pick({
     year: true,
     is_current: true,
-    id: true,
-    created_at: true
+    id: true
+    // created_at: true
   })
   .extend({ group_count: number() })
 

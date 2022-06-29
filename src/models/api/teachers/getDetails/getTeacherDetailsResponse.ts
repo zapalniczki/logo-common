@@ -20,8 +20,8 @@ export const getTeacherDetailsResponseSchema = teacher
     id: true,
     surname: true,
     email_confirmed: true,
-    blocked: true,
-    created_at: true
+    blocked: true
+    // created_at: true
   })
   .extend({ has_quiz_assignments: boolean() })
 
