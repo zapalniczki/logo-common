@@ -25,6 +25,10 @@ export const getTeacherDetailsResponseSchema = teacher
   })
   .extend({ has_quiz_assignments: boolean() })
 
+export type GetTeacherDetailsResponseSchema = TypeOf<
+  typeof getTeacherDetailsResponseSchema
+>
+
 export const getTeacherDetailsResponse = getTeacherDetailsResponseSchema
   .omit({ has_quiz_assignments: true })
   .extend({ permissions: array(getTeacherDetailsResponsePermission) })

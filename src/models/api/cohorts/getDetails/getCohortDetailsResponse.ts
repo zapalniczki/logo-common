@@ -20,6 +20,10 @@ export const getCohortDetailsResponseSchema = cohort
   })
   .extend({ group_count: number() })
 
+export type GetCohortDetailsResponseSchema = TypeOf<
+  typeof getCohortDetailsResponseSchema
+>
+
 export const getCohortDetailsResponse = getCohortDetailsResponseSchema.extend({
   permissions: array(getCohortDetailsResponsePermission)
 })

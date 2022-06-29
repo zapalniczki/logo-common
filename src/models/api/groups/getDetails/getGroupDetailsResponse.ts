@@ -19,6 +19,10 @@ export const getGroupDetailsResponseSchema = group
     student_count: number()
   })
 
+export type GetGroupDetailsResponseSchema = TypeOf<
+  typeof getGroupDetailsResponseSchema
+>
+
 export const getGroupDetailsResponse = getGroupDetailsResponseSchema
   .omit({ student_count: true })
   .extend({ permissions: array(getGroupDetailsResponsePermission) })
