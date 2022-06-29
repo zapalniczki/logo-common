@@ -1,7 +1,7 @@
 import { array, boolean, enum as zenum, TypeOf } from 'zod'
 import { teacher } from '../../../db'
 
-const getTeacherDetailsResponsePermissions = zenum([
+const getTeacherDetailsResponsePermission = zenum([
   'DELETE',
   'BLOCK',
   'UNBLOCK',
@@ -9,8 +9,8 @@ const getTeacherDetailsResponsePermissions = zenum([
   'SEND_ACTIVATION'
 ])
 
-export type GetTeacherDetailsResponsePermissions = TypeOf<
-  typeof getTeacherDetailsResponsePermissions
+export type GetTeacherDetailsResponsePermission = TypeOf<
+  typeof getTeacherDetailsResponsePermission
 >
 
 export const getTeacherDetailsResponseSchema = teacher
@@ -24,10 +24,8 @@ export const getTeacherDetailsResponseSchema = teacher
   })
   .extend({ has_quiz_assignments: boolean() })
 
-export const getTeacherDetailsResponse = getTeacherDetailsResponseSchema.extend(
-  {
-    permissions: array(getTeacherDetailsResponsePermissions)
-  }
-)
+export const getTeacherDetailsResponse = getTeacherDetailsResponseSchema
+  .omit({ has_quiz_assignments: true })
+  .extend({ permissions: array(getTeacherDetailsResponsePermission) })
 
 export type GetTeacherDetailsResponse = TypeOf<typeof getTeacherDetailsResponse>
