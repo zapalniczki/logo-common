@@ -11,6 +11,7 @@ export const getGroupDetailsResponseSchema = group
   .pick({
     level: true,
     letter: true,
+    created_at: true,
     id: true
   })
   .extend({
