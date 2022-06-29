@@ -1,5 +1,5 @@
 import { array, enum as zenum, number, TypeOf } from 'zod'
-import { group } from '../../../db'
+import { cohort, group } from '../../../db'
 
 const getGroupDetailsResponsePermission = zenum(['EDIT', 'DELETE'])
 
@@ -13,7 +13,10 @@ export const getGroupDetailsResponseSchema = group
     letter: true,
     id: true
   })
-  .extend({ student_count: number() })
+  .extend({
+    cohort_year: cohort.shape.year,
+    student_count: number()
+  })
 
 export const getGroupDetailsResponse = getGroupDetailsResponseSchema
   .omit({ student_count: true })
