@@ -12,7 +12,8 @@ export const getGroupDetailsResponseSchema = group
     level: true,
     letter: true,
     // created_at: true,
-    id: true
+    id: true,
+    cohort_id: true
   })
   .extend({
     cohort_year: cohort.shape.year,
