@@ -12,6 +12,7 @@ export const getAllSchoolsResponseSchema = school.pick({
   name: true,
   email: true,
   id: true,
+  blocked: true,
   email_confirmed: true
 })
 
