@@ -1,7 +1,9 @@
 const STUDENTS = {
-  getDetails: '/Students/getDetails',
+  add: '/Students/add',
+  delete: '/Students/delete',
+  edit: '/Students/edit',
   getAll: '/Students/getAll',
-  addNew: '/Students/addNew'
+  getDetails: '/Students/getDetails'
 } as const
 
 export default STUDENTS
