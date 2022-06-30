@@ -4,8 +4,12 @@ import { admin } from '../../../db'
 
 export const getAllSchoolsRequestSortingKeys = zenum(['NAME'])
 
-const sortingQuery = getSortingQuery(getAllSchoolsRequestSortingKeys)
-type SortingQuery = TypeOf<typeof sortingQuery>
+export const getAllSchoolsRequestSortingQuery = getSortingQuery(
+  getAllSchoolsRequestSortingKeys
+)
+export type GetAllSchoolsRequestSortingQuery = TypeOf<
+  typeof getAllSchoolsRequestSortingQuery
+>
 
 export const getAllSchoolsRequestSchema = object({
   admin_id: admin.shape.id
