@@ -3,6 +3,9 @@ import { getQueryParams, getSortingQuery } from '../../../../helpers'
 import { admin } from '../../../db'
 
 export const getAllSchoolsRequestSortingKeys = zenum(['NAME'])
+export type GetAllSchoolsRequestSortingKeys = TypeOf<
+  typeof getAllSchoolsRequestSortingKeys
+>
 
 export const getAllSchoolsRequestSortingQuery = getSortingQuery(
   getAllSchoolsRequestSortingKeys
