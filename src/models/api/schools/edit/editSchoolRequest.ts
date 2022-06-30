@@ -13,4 +13,4 @@ export const editSchoolRequest = school
   .partial()
   .merge(school.pick({ id: true }))
 
-export type EditTeacherRequest = TypeOf<typeof editSchoolRequest>
+export type EditSchoolRequest = TypeOf<typeof editSchoolRequest>
