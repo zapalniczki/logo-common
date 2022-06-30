@@ -6,7 +6,6 @@ export const addSchoolRequest = school.omit({
   updated_at: true,
   id: true,
   email_confirmed: true,
-  admin_id: true,
   blocked: true
 })
 
