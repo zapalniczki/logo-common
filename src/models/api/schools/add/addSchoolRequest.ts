@@ -1,12 +1,13 @@
 import { TypeOf } from 'zod'
 import { school } from '../../../db'
 
-export const addNewSchoolRequest = school.omit({
+export const addSchoolRequest = school.omit({
   created_at: true,
   updated_at: true,
   id: true,
   email_confirmed: true,
-  admin_id: true
+  admin_id: true,
+  blocked: true
 })
 
-export type AddNewSchoolRequest = TypeOf<typeof addNewSchoolRequest>
+export type AddSchoolRequest = TypeOf<typeof addSchoolRequest>

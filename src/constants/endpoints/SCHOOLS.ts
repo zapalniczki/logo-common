@@ -1,7 +1,7 @@
 const SCHOOLS = {
   getDetails: '/Schools/getDetails',
   getAll: '/Schools/getAll',
-  addNew: '/Schools/addNew'
+  add: '/Schools/add'
 } as const
 
 export default SCHOOLS
