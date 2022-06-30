@@ -14,7 +14,8 @@
     "minor": "yarn version --new-version minor",
     "patch": "yarn version --new-version patch",
     "check": "tsc --noEmit",
-    "release": "yarn run patch & git push --no-verify"
+    "release": "yarn run patch & git push --no-verify",
+    "temp": "git status & git add . & git commit -m 'misc' & yarn release"
   },
   "devDependencies": {
     "postgres": "^3.2.4",
