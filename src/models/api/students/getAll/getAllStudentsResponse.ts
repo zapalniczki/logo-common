@@ -20,8 +20,6 @@ export const getAllStudentsResponseSchema = object({
 
 export const getAllStudentsResponse = getListResponseBody(
   getAllStudentsResponseSchema
-).extend({
-  permissions: array(getAllStudentsResponsePermission)
-})
+).extend({ permissions: array(getAllStudentsResponsePermission) })
 
 export type GetAllStudentsResponse = TypeOf<typeof getAllStudentsResponse>
