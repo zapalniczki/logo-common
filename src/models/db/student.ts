@@ -7,8 +7,7 @@ import { tableBase } from './tableBase'
 export const student = tableBase.merge(roleRelated).extend({
   surname: string(),
   group_id: group.shape.id,
-  school_id: school.shape.id,
-  blocked: boolean()
+  school_id: school.shape.id
 })
 
 export type Student = TypeOf<typeof student>
