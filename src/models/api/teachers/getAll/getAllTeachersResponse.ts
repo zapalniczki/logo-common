@@ -1,8 +1,14 @@
-import { TypeOf } from 'zod'
+import { TypeOf, enum as zenum, array } from 'zod'
 import { getListResponseBody } from '../../../../helpers'
 import { teacher } from '../../../db'
 
-const schema = teacher.pick({
+const getAllTeacherResponsePermission = zenum(['ADD'])
+
+export type GetAllTeacherResponsePermission = TypeOf<
+  typeof getAllTeacherResponsePermission
+>
+
+export const getAllTeachersResponseSchema = teacher.pick({
   name: true,
   surname: true,
   id: true,
@@ -10,6 +16,10 @@ const schema = teacher.pick({
   email_confirmed: true
 })
 
-export const getAllTeachersResponse = getListResponseBody(schema)
+export const getAllTeachersResponse = getListResponseBody(
+  getAllTeachersResponseSchema
+).extend({
+  permissions: array(getAllTeacherResponsePermission)
+})
 
 export type GetAllTeachersResponse = TypeOf<typeof getAllTeachersResponse>
