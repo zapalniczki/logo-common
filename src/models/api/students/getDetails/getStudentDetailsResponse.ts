@@ -23,14 +23,14 @@ export const getStudentDetailsResponseSchema = student
     email_confirmed: true
     // created_at: true
   })
-  .extend({ has_quiz_assignments: boolean() })
+  .extend({ has_quiz_attempts: boolean() })
 
 export type GetStudentDetailsResponseSchema = TypeOf<
   typeof getStudentDetailsResponseSchema
 >
 
 export const getStudentDetailsResponse = getStudentDetailsResponseSchema
-  .omit({ has_quiz_assignments: true })
+  .omit({ has_quiz_attempts: true })
   .extend({ permissions: array(getStudentDetailsResponsePermission) })
 
 export type GetStudentDetailsResponse = TypeOf<typeof getStudentDetailsResponse>
