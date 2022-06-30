@@ -5,9 +5,9 @@ import { student, cohort } from '../../../db'
 const schema = object({
   name: student.shape.name,
   surname: student.shape.surname,
-  email: student.shape.email,
   id: student.shape.id,
   email_confirmed: student.shape.email_confirmed,
+  blocked: student.shape.blocked,
   cohort: cohort.shape.year,
   group: string()
 })
