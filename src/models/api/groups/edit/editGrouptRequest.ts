@@ -1,11 +1,12 @@
-import { object, TypeOf } from 'zod'
+import { TypeOf } from 'zod'
 import { group } from '../../../db'
 
-export const editGroupRequest = object({
-  level: group.shape.level,
-  letter: group.shape.letter,
-  cohort_id: group.shape.id
-})
+export const editGroupRequest = group
+  .pick({
+    level: true,
+    letter: true,
+    cohort_id: true
+  })
   .partial()
   .merge(group.pick({ id: true }))
 

@@ -1,9 +1,8 @@
-import { object, TypeOf } from 'zod'
+import { TypeOf } from 'zod'
 import { cohort } from '../../../db'
 
-export const editCohortRequest = object({
-  year: cohort.shape.year
-})
+export const editCohortRequest = cohort
+  .pick({ year: true })
   .partial()
   .merge(cohort.pick({ id: true }))
 
