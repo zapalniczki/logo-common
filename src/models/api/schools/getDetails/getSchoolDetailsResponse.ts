@@ -23,7 +23,6 @@ export const getSchoolDetailsResponseSchema = school
   })
   .extend({
     has_cohorts: boolean(),
-    has_groups: boolean(),
     has_teachers: boolean()
   })
 
@@ -34,7 +33,6 @@ export type GetSchoolDetailsResponseSchema = TypeOf<
 export const getSchoolDetailsResponse = getSchoolDetailsResponseSchema
   .omit({
     has_cohorts: true,
-    has_groups: true,
     has_teachers: true
   })
   .extend({ permissions: array(getSchoolDetailsResponsePermission) })
