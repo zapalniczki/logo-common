@@ -1,4 +1,4 @@
-import { TypeOf, enum as zenum, array, boolean, object } from 'zod'
+import { TypeOf, enum as zenum, array, boolean } from 'zod'
 import { school } from '../../../db'
 
 const getSchoolDetailsResponsePermission = zenum([
