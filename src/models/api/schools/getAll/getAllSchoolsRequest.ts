@@ -2,7 +2,7 @@ import { object, TypeOf, enum as zenum } from 'zod'
 import { getQueryParams, getSortingQuery } from '../../../../helpers'
 import { admin } from '../../../db'
 
-export const getAllSchoolsRequestSortingKeys = zenum(['NAME'])
+export const getAllSchoolsRequestSortingKeys = zenum(['NAME', 'CREATED_AT'])
 export type GetAllSchoolsRequestSortingKeys = TypeOf<
   typeof getAllSchoolsRequestSortingKeys
 >
