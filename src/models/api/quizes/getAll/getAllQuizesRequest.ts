@@ -2,15 +2,26 @@ import { getQueryParams, getSortingQuery } from '../../../../helpers'
 import { enum as zenum, object, TypeOf } from 'zod'
 import { quiz, teacher } from '../../../db'
 
-const sortingKeys = zenum(['NAME'])
-const sortingQuery = getSortingQuery(sortingKeys)
-type SortingQuery = TypeOf<typeof sortingQuery>
+export const getAllQuizesRequestSortingKeys = zenum(['NAME'])
+export type GetAllQuizesRequestSortingKeys = TypeOf<
+  typeof getAllQuizesRequestSortingKeys
+>
 
-const querySchema = object({
+export const getAllQuizesRequestSortingQuery = getSortingQuery(
+  getAllQuizesRequestSortingKeys
+)
+export type GetAllQuizesRequestSortingQuery = TypeOf<
+  typeof getAllQuizesRequestSortingQuery
+>
+
+const getAllQuizesRequestSchema = object({
   teacher_id: teacher.shape.id,
   quizCategory: quiz.shape.category.optional(),
   level: quiz.shape.level.optional()
 })
 
-export const getAllQuizesRequest = getQueryParams(querySchema, sortingKeys)
+export const getAllQuizesRequest = getQueryParams(
+  getAllQuizesRequestSchema,
+  getAllQuizesRequestSortingKeys
+)
 export type GetAllQuizesRequest = TypeOf<typeof getAllQuizesRequest>
