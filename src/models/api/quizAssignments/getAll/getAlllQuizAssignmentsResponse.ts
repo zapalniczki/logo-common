@@ -12,25 +12,26 @@ const baseSchema = object({
 })
 
 const teacherSchema = baseSchema.extend({
-  data_view: literal('TEACHER'),
   score_percentage: number(),
   completion_percentage: number()
 })
 
-export const getAlllQuizAssignmentsTeacherResponse =
-  getListResponseBody(teacherSchema)
+export const getAlllQuizAssignmentsTeacherResponse = getListResponseBody(
+  teacherSchema
+).extend({ data_view: literal('TEACHER') })
 export type GetAlllQuizAssignmentsTeacherResponse = TypeOf<
   typeof getAlllQuizAssignmentsTeacherResponse
 >
 
 const studentSchema = baseSchema.extend({
-  data_view: literal('STUDENT'),
   attempt_count: number(),
   score_percentage: number()
 })
 
-export const getAlllQuizAssignmentsStudentResponse =
-  getListResponseBody(studentSchema)
+export const getAlllQuizAssignmentsStudentResponse = getListResponseBody(
+  studentSchema
+).extend({ data_view: literal('STUDENT') })
+
 export type GetAlllQuizAssignmentsStudentResponse = TypeOf<
   typeof getAlllQuizAssignmentsStudentResponse
 >
