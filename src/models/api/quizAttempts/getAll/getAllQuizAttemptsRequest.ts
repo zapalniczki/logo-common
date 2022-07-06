@@ -3,10 +3,8 @@ import { getQueryParams, getSortingQuery } from '../../../../helpers'
 import { quizAssignment, student } from '../../../db'
 
 export const getAllQuizAttemptsRequestSortingKeys = zenum([
-  'NAME',
-  'QUIZ_NAME',
-  'CREATED_AT',
-  'DUE_DATE'
+  'DISPLAY_NAME',
+  'INDEX'
 ])
 export type GetAllQuizAttemptsRequestSortingKeys = TypeOf<
   typeof getAllQuizAttemptsRequestSortingKeys
