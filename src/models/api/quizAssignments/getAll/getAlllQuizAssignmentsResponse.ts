@@ -16,11 +16,11 @@ const teacherSchema = baseSchema.extend({
   completion_percentage: number()
 })
 
-export const getAlllQuizAssignmentsTeacherResponse = getListResponseBody(
+export const getAllQuizAssignmentsTeacherResponse = getListResponseBody(
   teacherSchema
 ).extend({ data_view: literal('TEACHER') })
-export type GetAlllQuizAssignmentsTeacherResponse = TypeOf<
-  typeof getAlllQuizAssignmentsTeacherResponse
+export type GetAllQuizAssignmentsTeacherResponse = TypeOf<
+  typeof getAllQuizAssignmentsTeacherResponse
 >
 
 const studentSchema = baseSchema.extend({
@@ -28,10 +28,10 @@ const studentSchema = baseSchema.extend({
   score_percentage: number()
 })
 
-export const getAlllQuizAssignmentsStudentResponse = getListResponseBody(
+export const getAllQuizAssignmentsStudentResponse = getListResponseBody(
   studentSchema
 ).extend({ data_view: literal('STUDENT') })
 
-export type GetAlllQuizAssignmentsStudentResponse = TypeOf<
-  typeof getAlllQuizAssignmentsStudentResponse
+export type GetAllQuizAssignmentsStudentResponse = TypeOf<
+  typeof getAllQuizAssignmentsStudentResponse
 >
