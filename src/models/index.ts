@@ -17,13 +17,13 @@ export const pagination = object({
   page: number()
 })
 
-export const dataView = zenum(['TEACHER', 'STUDENT'])
-export type DataView = TypeOf<typeof dataView>
-
 export type Pagination = TypeOf<typeof pagination>
 
 export const quizAttemptResult = zenum(['PASS', 'NEUTRAL', 'FAIL'])
 export type QuizAttemptResult = TypeOf<typeof quizAttemptResult>
+
+export const userRole = zenum(['TEACHER', 'STUDENT', 'SCHOOL', 'ADMIN'])
+export type UserRole = TypeOf<typeof userRole>
 
 export * from './db'
 export * from './dbEnums'

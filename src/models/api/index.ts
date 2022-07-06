@@ -1,6 +1,7 @@
 export * from './admins'
 export * from './auth'
 export * from './cohorts'
+export * from './funFacts'
 export * from './groups'
 export * from './kpis'
 export * from './quizAssignments'
