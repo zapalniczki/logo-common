@@ -1,2 +1,2 @@
-export * from './getAlllQuizAssignmentsRequest'
-export * from './getAlllQuizAssignmentsResponse'
+export * from './getAllQuizAssignmentsRequest'
+export * from './getAllQuizAssignmentsResponse'
