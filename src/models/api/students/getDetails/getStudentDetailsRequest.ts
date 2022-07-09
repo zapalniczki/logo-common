@@ -1,4 +1,4 @@
-import { object, TypeOf, undefined, intersection, union } from 'zod'
+import { object, TypeOf, undefined, union } from 'zod'
 import { school, student, teacher } from '../../../db'
 
 export const schema = object({
