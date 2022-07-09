@@ -17,7 +17,7 @@ const schoolSchema = object({
 
 const studentSchema = object({
   teacher_id: undefined(),
-  school_id: school.shape.id
+  school_id: undefined()
 }).merge(schema)
 
 export const getStudentDetailsRequest = union([
