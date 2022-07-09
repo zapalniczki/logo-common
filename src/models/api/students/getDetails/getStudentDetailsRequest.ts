@@ -15,6 +15,15 @@ const schoolSchema = object({
   school_id: school.shape.id
 }).merge(schema)
 
-export const getStudentDetailsRequest = union([teacherSchema, schoolSchema])
+const studentSchema = object({
+  teacher_id: undefined(),
+  school_id: school.shape.id
+}).merge(schema)
+
+export const getStudentDetailsRequest = union([
+  schoolSchema,
+  teacherSchema,
+  studentSchema
+])
 
 export type GetStudentDetailsRequest = TypeOf<typeof getStudentDetailsRequest>
