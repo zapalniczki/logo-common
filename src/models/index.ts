@@ -58,39 +58,6 @@ export const userParams = object({
   )
 export type UserParams = TypeOf<typeof userParams>
 
-export const userParams2 = object(
-  ...object({
-    admin_id: admin.shape.id,
-    school_id: undefined(),
-    teacher_id: undefined(),
-    student_id: undefined()
-  })
-    .or(
-      object({
-        admin_id: undefined(),
-        school_id: school.shape.id,
-        teacher_id: undefined(),
-        student_id: undefined()
-      })
-    )
-    .or(
-      object({
-        admin_id: undefined(),
-        school_id: undefined(),
-        teacher_id: teacher.shape.id,
-        student_id: undefined()
-      })
-    )
-    .or(
-      object({
-        admin_id: undefined(),
-        school_id: undefined(),
-        teacher_id: undefined(),
-        student_id: student.shape.id
-      })
-    )
-)
-
 export * from './db'
 export * from './dbEnums'
 export * from './api'
