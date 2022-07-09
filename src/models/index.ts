@@ -58,6 +58,14 @@ export const userParams = object({
   )
 export type UserParams = TypeOf<typeof userParams>
 
+export const userSchema = object({
+  user_id: admin.shape.id
+    .or(school.shape.id)
+    .or(teacher.shape.id)
+    .or(student.shape.id)
+})
+export type UserSchema = TypeOf<typeof userSchema>
+
 export * from './db'
 export * from './dbEnums'
 export * from './api'

@@ -1,29 +1,11 @@
-import { object, TypeOf, undefined, union } from 'zod'
-import { school, student, teacher } from '../../../db'
+import { object, TypeOf } from 'zod'
+import { getUserSchema } from '../../../../helpers'
+import { student } from '../../../db'
 
-export const schema = object({
+const schema = object({
   student_id: student.shape.id
 })
 
-const teacherSchema = object({
-  teacher_id: teacher.shape.id,
-  school_id: undefined()
-}).merge(schema)
-
-const schoolSchema = object({
-  teacher_id: undefined(),
-  school_id: school.shape.id
-}).merge(schema)
-
-const studentSchema = object({
-  teacher_id: undefined(),
-  school_id: undefined()
-}).merge(schema)
-
-export const getStudentDetailsRequest = union([
-  schoolSchema,
-  teacherSchema,
-  studentSchema
-])
+export const getStudentDetailsRequest = getUserSchema(schema)
 
 export type GetStudentDetailsRequest = TypeOf<typeof getStudentDetailsRequest>
