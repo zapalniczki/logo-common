@@ -1,4 +1,4 @@
-import { TypeOf, enum as zenum, array } from 'zod'
+import { TypeOf, enum as zenum, array, number } from 'zod'
 import { quiz } from '../../../db'
 
 const getQuizDetailsResponsePermission = zenum([
@@ -11,12 +11,17 @@ export type GetQuizDetailsResponsePermission = TypeOf<
   typeof getQuizDetailsResponsePermission
 >
 
-export const getQuizDetailsResponseSchema = quiz.pick({
-  name: true,
-  introduction: true,
-  category: true,
-  id: true
-})
+export const getQuizDetailsResponseSchema = quiz
+  .pick({
+    name: true,
+    introduction: true,
+    category: true,
+    id: true
+  })
+  .extend({
+    instance_count: number(),
+    question_count: number()
+  })
 
 export type GetQuizDetailsResponseSchema = TypeOf<
   typeof getQuizDetailsResponseSchema
