@@ -29,6 +29,9 @@ const funFactPlacementId = zenum([
   'quiz_assignments_progress',
   'quiz_assignments_list',
 
+  // QUIZ_INSTANCES
+  'quiz_instances_list',
+
   // SCHOOLS
   'schools_add',
   'schools_edit',
