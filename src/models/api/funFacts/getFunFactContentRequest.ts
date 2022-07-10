@@ -12,6 +12,9 @@ const funFactPlacementId = zenum([
   'groups_edit',
   'groups_list',
 
+  // HELP
+  'help_list',
+
   // OVERVIEW
   'overview',
 
@@ -33,6 +36,9 @@ const funFactPlacementId = zenum([
 
   // SETTINGS
   'settings',
+
+  // STATISTICS
+  'statistics',
 
   // STUDENTS
   'students_add',
