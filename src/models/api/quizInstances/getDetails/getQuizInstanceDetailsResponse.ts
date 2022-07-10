@@ -1,11 +1,15 @@
 import { object, TypeOf, enum as zenum, array } from 'zod'
 import { quiz, quizInstance } from '../../../db'
 
-const getQuizInstanceDetailsPermission = zenum([
+export const getQuizInstanceDetailsPermission = zenum([
   'VIEW_QUESTIONS',
   'USE',
   'DELETE'
 ])
+
+export type GetQuizInstanceDetailsPermission = TypeOf<
+  typeof getQuizInstanceDetailsPermission
+>
 
 export const getQuizInstanceDetailsResponseSchema = object({
   name: quizInstance.shape.name,
