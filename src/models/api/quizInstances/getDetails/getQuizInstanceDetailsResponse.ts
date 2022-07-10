@@ -1,4 +1,4 @@
-import { object, TypeOf, enum as zenum, array } from 'zod'
+import { object, TypeOf, enum as zenum, array, number } from 'zod'
 import { quiz, quizInstance } from '../../../db'
 
 export const getQuizInstanceDetailsPermission = zenum([
@@ -17,7 +17,7 @@ export const getQuizInstanceDetailsResponseSchema = object({
   id: quizInstance.shape.id,
   quiz_id: quizInstance.shape.quiz_id,
   category: quiz.shape.category
-})
+}).extend({ use_count: number() })
 
 export const getQuizInstanceDetailsResponse =
   getQuizInstanceDetailsResponseSchema.extend({
