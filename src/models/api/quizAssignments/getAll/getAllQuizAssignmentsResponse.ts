@@ -1,37 +1,27 @@
-import { literal, number, object, TypeOf } from 'zod'
+import { number, object, TypeOf } from 'zod'
 import { getListResponseBody } from '../../../../helpers'
 import { quiz, quizAssignment } from '../../../db'
 
-const baseSchema = object({
+export const getAllQuizAssignmentsStudentResponseSchema = object({
   quiz_name: quiz.shape.name,
   quiz_category: quiz.shape.category,
   id: quizAssignment.shape.id,
   name: quizAssignment.shape.name,
   mode: quizAssignment.shape.mode,
-  due_date: quizAssignment.shape.due_date
-})
-
-const teacherSchema = baseSchema.extend({
+  due_date: quizAssignment.shape.due_date,
   score_percentage: number(),
-  completion_percentage: number()
+  completion_percentage: number().optional(),
+  attempt_count: number().optional()
 })
 
-export const getAllQuizAssignmentsTeacherResponse = getListResponseBody(
-  teacherSchema
-).extend({ data_view: literal('TEACHER') })
-export type GetAllQuizAssignmentsTeacherResponse = TypeOf<
-  typeof getAllQuizAssignmentsTeacherResponse
+export type GetAllQuizAssignmentsStudentResponseSchema = TypeOf<
+  typeof getAllQuizAssignmentsStudentResponseSchema
 >
 
-const studentSchema = baseSchema.extend({
-  attempt_count: number(),
-  score_percentage: number()
-})
+export const getAllQuizAssignmentsResponse = getListResponseBody(
+  getAllQuizAssignmentsStudentResponseSchema
+)
 
-export const getAllQuizAssignmentsStudentResponse = getListResponseBody(
-  studentSchema
-).extend({ data_view: literal('STUDENT') })
-
-export type GetAllQuizAssignmentsStudentResponse = TypeOf<
-  typeof getAllQuizAssignmentsStudentResponse
+export type GetAllQuizAssignmentsResponse = TypeOf<
+  typeof getAllQuizAssignmentsResponse
 >
