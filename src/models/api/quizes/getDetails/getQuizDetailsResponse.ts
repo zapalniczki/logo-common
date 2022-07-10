@@ -3,7 +3,7 @@ import { quiz } from '../../../db'
 
 const getQuizDetailsResponsePermission = zenum([
   'VIEW_QUESTIONS',
-  'VIEW_VERSIONS',
+  'VIEW_INSTANCES',
   'USE'
 ])
 
