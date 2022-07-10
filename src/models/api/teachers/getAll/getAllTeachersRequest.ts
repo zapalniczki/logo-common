@@ -1,6 +1,9 @@
 import { enum as zenum, object, TypeOf } from 'zod'
-import { getQueryParams, getSortingQuery } from '../../../../helpers'
-import { school } from '../../../db'
+import {
+  getQueryParams,
+  getSortingQuery,
+  getUserSchema
+} from '../../../../helpers'
 
 export const getAllTeachersRequestSortingKeys = zenum([
   'SURNAME',
@@ -20,9 +23,7 @@ export type GetAllTeachersRequestSortingQuery = TypeOf<
   typeof getAllTeachersRequestSortingQuery
 >
 
-export const getAllTeachersRequestSchema = object({
-  school_id: school.shape.id
-})
+export const getAllTeachersRequestSchema = getUserSchema(object({}))
 
 export const getAllTeachersRequest = getQueryParams(
   getAllTeachersRequestSchema,
