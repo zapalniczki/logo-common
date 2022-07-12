@@ -1,5 +1,5 @@
 const QUIZ_ASSIGNMENTS = {
-  addNew: '/quiz-assignments/addNew',
+  add: '/quiz-assignments/add',
   getAll: '/quiz-assignments/getAll',
   getDetails: '/quiz-assignments/getDetails',
   getProgress: '/quiz-assignments/getProgress'

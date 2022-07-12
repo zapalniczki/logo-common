@@ -1,8 +1,8 @@
 import { object, string, TypeOf } from 'zod'
+import { getUserSchema } from '../../../../helpers'
 import { quizAssignment } from '../../../db'
 
-export const addNewQuizAssignmentRequest = object({
-  teacher_id: quizAssignment.shape.teacher_id,
+export const addNewQuizAssignmentRequestSchema = object({
   quiz_id: quizAssignment.shape.quiz_id,
   quiz_instance_id: quizAssignment.shape.id.optional(),
   allowed_question_attempts: quizAssignment.shape.allowed_question_attempts,
@@ -16,6 +16,14 @@ export const addNewQuizAssignmentRequest = object({
   attempt_time: quizAssignment.shape.attempt_time,
   due_date: string()
 })
+
+export type AddNewQuizAssignmentRequestSchema = TypeOf<
+  typeof addNewQuizAssignmentRequestSchema
+>
+
+export const addNewQuizAssignmentRequest = getUserSchema(
+  addNewQuizAssignmentRequestSchema
+)
 
 export type AddNewQuizAssignmentRequest = TypeOf<
   typeof addNewQuizAssignmentRequest
