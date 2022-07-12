@@ -1,5 +1,5 @@
 const FUN_FACTS = {
-  getContent: '/Admins/getContent'
+  getContent: '/FunFacts/getContent'
 } as const
 
 export default FUN_FACTS
