@@ -2,7 +2,7 @@ import { object, string, TypeOf } from 'zod'
 import { getUserSchema } from '../../../../helpers'
 import { quizAssignment } from '../../../db'
 
-export const addNewQuizAssignmentRequestSchema = object({
+export const addQuizAssignmentRequestSchema = object({
   quiz_id: quizAssignment.shape.quiz_id,
   quiz_instance_id: quizAssignment.shape.id.optional(),
   allowed_question_attempts: quizAssignment.shape.allowed_question_attempts,
@@ -17,14 +17,12 @@ export const addNewQuizAssignmentRequestSchema = object({
   due_date: string()
 })
 
-export type AddNewQuizAssignmentRequestSchema = TypeOf<
-  typeof addNewQuizAssignmentRequestSchema
+export type AddQuizAssignmentRequestSchema = TypeOf<
+  typeof addQuizAssignmentRequestSchema
 >
 
-export const addNewQuizAssignmentRequest = getUserSchema(
-  addNewQuizAssignmentRequestSchema
+export const addQuizAssignmentRequest = getUserSchema(
+  addQuizAssignmentRequestSchema
 )
 
-export type AddNewQuizAssignmentRequest = TypeOf<
-  typeof addNewQuizAssignmentRequest
->
+export type AddQuizAssignmentRequest = TypeOf<typeof addQuizAssignmentRequest>
