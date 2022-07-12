@@ -1,9 +1,8 @@
 import { number, object, TypeOf } from 'zod'
+import { getUserSchema } from '../../../../helpers'
 import { teacher } from '../../../db'
 
-export const getQuizCategoriesRequestSchema = object({
-  teacher_id: teacher.shape.id
-})
+export const getQuizCategoriesRequestSchema = getUserSchema(object({}))
 
 export type GetQuizCategoriesRequestSchema = TypeOf<
   typeof getQuizCategoriesRequestSchema
