@@ -4,6 +4,7 @@ import {
   getSortingQuery,
   getUserSchema
 } from '../../../../helpers'
+import { cohort } from '../../../db'
 
 export const getAllGroupsRequestSortingKeys = zenum(['LEVEL', 'LETTER'])
 export type GetAllGroupsRequestSortingKeys = TypeOf<
@@ -17,7 +18,9 @@ export type GetAllGroupsRequestSortingQuery = TypeOf<
   typeof getAllGroupsRequestSortingQuery
 >
 
-const getAllGroupsRequestSchema = getUserSchema(object({}))
+const getAllGroupsRequestSchema = getUserSchema(
+  object({ cohort_id: cohort.shape.id.optional() })
+)
 
 export const getAllGroupsRequest = getQueryParams(
   getAllGroupsRequestSchema,
