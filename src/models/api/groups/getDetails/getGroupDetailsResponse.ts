@@ -1,7 +1,11 @@
 import { array, enum as zenum, number, TypeOf } from 'zod'
 import { cohort, group } from '../../../db'
 
-const getGroupDetailsResponsePermission = zenum(['EDIT', 'DELETE'])
+const getGroupDetailsResponsePermission = zenum([
+  'ADD_STUDENT',
+  'EDIT',
+  'DELETE'
+])
 
 export type GetGroupDetailsResponsePermission = TypeOf<
   typeof getGroupDetailsResponsePermission
@@ -11,7 +15,7 @@ export const getGroupDetailsResponseSchema = group
   .pick({
     level: true,
     letter: true,
-    // created_at: true,
+    created_at: true,
     id: true,
     cohort_id: true
   })
