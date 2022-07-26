@@ -1,24 +1,45 @@
-import { object, string, TypeOf } from 'zod'
+import { array, enum as zenum, string, TypeOf } from 'zod'
 import { quiz, quizAssignment, quizInstance } from '../../../db'
 
-export const getQuizAssignmentDetailsResponse = object({
-  id: quizAssignment.shape.id,
-  name: quizAssignment.shape.name,
-  created_at: quizAssignment.shape.created_at,
-  category: quiz.shape.category,
-  mode: quizAssignment.shape.mode,
-  pass_threshold: quizAssignment.shape.pass_threshold,
-  allowed_question_attempts: quizAssignment.shape.allowed_question_attempts,
-  allowed_quiz_attempts: quizAssignment.shape.allowed_quiz_attempts,
-  group_name: string(),
-  teacher_name: string(),
-  quiz_name: quiz.shape.name,
-  quiz_instance_name: quizInstance.shape.name.nullable(),
-  has_been_quiz_instance_id_randomly_selected:
-    quizAssignment.shape.has_been_quiz_instance_id_randomly_selected,
-  attempt_time: quizAssignment.shape.attempt_time,
-  due_date: quizAssignment.shape.due_date
-})
+const getQuizAssignmentDetailsResponsePermission = zenum([
+  'DELETE',
+  'EDIT',
+  'PUBLISH'
+])
+
+export type GetQuizAssignmentDetailsResponsePermission = TypeOf<
+  typeof getQuizAssignmentDetailsResponsePermission
+>
+
+export const getQuizAssignmentDetailsResponseSchema = quizAssignment
+  .pick({
+    id: true,
+    name: true,
+    created_at: true,
+    mode: true,
+    pass_threshold: true,
+    allowed_question_attempts: true,
+    allowed_quiz_attempts: true,
+    has_been_quiz_instance_id_randomly_selected: true,
+    attempt_time: true,
+    due_date: true
+  })
+  .merge(quiz.pick({ category: true }))
+  .extend({
+    group_name: string(),
+    teacher_name: string(),
+    quiz_name: quiz.shape.name,
+    quiz_instance_name: quizInstance.shape.name.nullable()
+  })
+
+export type GetQuizAssignmentDetailsResponseSchema = TypeOf<
+  typeof getQuizAssignmentDetailsResponseSchema
+>
+
+export const getQuizAssignmentDetailsResponse =
+  getQuizAssignmentDetailsResponseSchema.extend({
+    permissions: array(getQuizAssignmentDetailsResponsePermission)
+  })
 
 export type GetQuizAssignmentDetailsResponse = TypeOf<
   typeof getQuizAssignmentDetailsResponse
