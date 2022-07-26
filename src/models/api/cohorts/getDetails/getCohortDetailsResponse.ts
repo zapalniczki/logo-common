@@ -4,7 +4,8 @@ import { cohort } from '../../../db'
 const getCohortDetailsResponsePermission = zenum([
   'EDIT',
   'DELETE',
-  'MAKE_CURRENT'
+  'MAKE_CURRENT',
+  'ADD_CLASS'
 ])
 
 export type GetCohortDetailsResponsePermission = TypeOf<
@@ -15,8 +16,8 @@ export const getCohortDetailsResponseSchema = cohort
   .pick({
     year: true,
     is_current: true,
-    id: true
-    // created_at: true
+    id: true,
+    created_at: true
   })
   .extend({ group_count: number() })
 
