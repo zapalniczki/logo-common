@@ -4,7 +4,9 @@ import { quiz, quizAssignment, quizInstance } from '../../../db'
 const getQuizAssignmentDetailsResponsePermission = zenum([
   'DELETE',
   'EDIT',
-  'PUBLISH'
+  'PUBLISH',
+  'VIEW_PROGRESS',
+  'VIEW_ATTEMPTS'
 ])
 
 export type GetQuizAssignmentDetailsResponsePermission = TypeOf<
