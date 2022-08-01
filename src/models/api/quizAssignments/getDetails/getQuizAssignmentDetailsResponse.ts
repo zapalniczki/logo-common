@@ -5,6 +5,7 @@ const getQuizAssignmentDetailsResponsePermission = zenum([
   'DELETE',
   'EDIT',
   'PUBLISH',
+  'UNPUBLISH',
   'VIEW_PROGRESS',
   'VIEW_ATTEMPTS'
 ])
