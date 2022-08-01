@@ -24,7 +24,8 @@ export const getQuizAssignmentDetailsResponseSchema = quizAssignment
     allowed_quiz_attempts: true,
     has_been_quiz_instance_id_randomly_selected: true,
     attempt_time: true,
-    due_date: true
+    due_date: true,
+    is_published: true
   })
   .merge(quiz.pick({ category: true }))
   .extend({

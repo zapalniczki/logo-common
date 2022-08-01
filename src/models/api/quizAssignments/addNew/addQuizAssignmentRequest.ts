@@ -1,21 +1,24 @@
-import { object, string, TypeOf } from 'zod'
+import { string, TypeOf } from 'zod'
 import { getUserSchema } from '../../../../helpers'
-import { quizAssignment } from '../../../db'
+import { quizAssignment, quizInstance } from '../../../db'
 
-export const addQuizAssignmentRequestSchema = object({
-  quiz_id: quizAssignment.shape.quiz_id,
-  quiz_instance_id: quizAssignment.shape.id.optional(),
-  allowed_question_attempts: quizAssignment.shape.allowed_question_attempts,
-  pass_threshold: quizAssignment.shape.pass_threshold,
-  name: quizAssignment.shape.name,
-  group_id: quizAssignment.shape.group_id,
-  should_randomize_quiz_instance_id:
-    quizAssignment.shape.should_randomize_quiz_instance_id,
-  mode: quizAssignment.shape.mode,
-  allowed_quiz_attempts: quizAssignment.shape.allowed_quiz_attempts,
-  attempt_time: quizAssignment.shape.attempt_time,
-  due_date: string()
-})
+export const addQuizAssignmentRequestSchema = quizAssignment
+  .pick({
+    quiz_id: true,
+    allowed_question_attempts: true,
+    pass_threshold: true,
+    name: true,
+    group_id: true,
+    should_randomize_quiz_instance_id: true,
+    allowed_quiz_attempts: true,
+    attempt_time: true,
+    mode: true,
+    is_published: true
+  })
+  .extend({
+    quiz_instance_id: quizInstance.shape.id.optional(),
+    due_date: string()
+  })
 
 export type AddQuizAssignmentRequestSchema = TypeOf<
   typeof addQuizAssignmentRequestSchema
