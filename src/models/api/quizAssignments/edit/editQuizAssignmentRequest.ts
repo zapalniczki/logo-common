@@ -15,11 +15,12 @@ export const editQuizAssignmentRequestSchema = quizAssignment
     mode: true,
     is_published: true
   })
-  .partial()
   .extend({
     quiz_instance_id: quizInstance.shape.id.optional(),
     due_date: string()
   })
+  .partial()
+  .merge(quizAssignment.pick({ id: true }))
 
 export type EditQuizAssignmentRequestSchema = TypeOf<
   typeof editQuizAssignmentRequestSchema
