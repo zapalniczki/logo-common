@@ -18,6 +18,7 @@ export const quizAssignment = tableBase.extend({
   teacher_id: teacher.shape.id,
   should_randomize_quiz_instance_id: boolean(),
   mode: quizAssignmentMode,
+  is_published: boolean(),
   attempt_time: number().int().positive().nullable(),
   due_date: date()
 })
