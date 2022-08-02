@@ -3,7 +3,12 @@ import { quizAttemptResult } from '../../..'
 import { getListResponseBody, getPermissionsSchema } from '../../../../helpers'
 import { answerAttempt, question, quizAttempt } from '../../../db'
 
-const schema = object({
+const getAllQuizAttemptsResponsePermission = zenum(['ADD_NEW'])
+export type GetAllQuizAttemptsResponsePermission = TypeOf<
+  typeof getAllQuizAttemptsResponsePermission
+>
+
+const getAllQuizAttemptsResponseSchema = object({
   display_name: quizAttempt.shape.display_name,
   id: quizAttempt.shape.id,
   index: quizAttempt.shape.index,
@@ -23,13 +28,14 @@ const schema = object({
   result: quizAttemptResult,
   score: answerAttempt.shape.score
 })
+export type GetAllQuizAttemptsResponseSchema = TypeOf<
+  typeof getAllQuizAttemptsResponseSchema
+>
 
-const permission = zenum(['ADD_NEW'])
-const permissions = getPermissionsSchema(permission)
-
-const listAndPagination = getListResponseBody(schema)
-
-export const getAllQuizAttemptsResponse = listAndPagination.merge(permissions)
+export const getAllQuizAttemptsResponse = getPermissionsSchema(
+  getListResponseBody(getAllQuizAttemptsResponseSchema),
+  getAllQuizAttemptsResponsePermission
+)
 
 export type GetAllQuizAttemptsResponse = TypeOf<
   typeof getAllQuizAttemptsResponse

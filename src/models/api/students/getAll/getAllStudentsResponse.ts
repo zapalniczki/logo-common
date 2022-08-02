@@ -1,6 +1,6 @@
-import { object, string, TypeOf, enum as zenum, array } from 'zod'
-import { getListResponseBody } from '../../../../helpers'
-import { student, cohort } from '../../../db'
+import { enum as zenum, object, string, TypeOf } from 'zod'
+import { getListResponseBody, getPermissionsSchema } from '../../../../helpers'
+import { cohort, student } from '../../../db'
 
 const getAllStudentsResponsePermission = zenum(['ADD'])
 
@@ -18,8 +18,9 @@ export const getAllStudentsResponseSchema = object({
   group: string()
 })
 
-export const getAllStudentsResponse = getListResponseBody(
-  getAllStudentsResponseSchema
-).extend({ permissions: array(getAllStudentsResponsePermission) })
+export const getAllStudentsResponse = getPermissionsSchema(
+  getListResponseBody(getAllStudentsResponseSchema),
+  getAllStudentsResponsePermission
+)
 
 export type GetAllStudentsResponse = TypeOf<typeof getAllStudentsResponse>

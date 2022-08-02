@@ -1,5 +1,5 @@
-import { number, object, enum as zenum, TypeOf, array } from 'zod'
-import { getListResponseBody } from '../../../../helpers'
+import { enum as zenum, number, object, TypeOf } from 'zod'
+import { getListResponseBody, getPermissionsSchema } from '../../../../helpers'
 import { cohort } from '../../../db'
 
 const getAllCohortsResponsePermission = zenum(['ADD'])
@@ -15,10 +15,9 @@ export const getAllCohortsResponseSchema = object({
   group_count: number()
 })
 
-export const getAllCohortsResponse = getListResponseBody(
-  getAllCohortsResponseSchema
-).extend({
-  permissions: array(getAllCohortsResponsePermission)
-})
+export const getAllCohortsResponse = getPermissionsSchema(
+  getListResponseBody(getAllCohortsResponseSchema),
+  getAllCohortsResponsePermission
+)
 
 export type GetAllCohortsResponse = TypeOf<typeof getAllCohortsResponse>

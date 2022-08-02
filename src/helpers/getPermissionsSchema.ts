@@ -1,9 +1,10 @@
-import { array, object, ZodEnum } from 'zod'
+import { array, ZodEnum, ZodObject, ZodRawShape } from 'zod'
 
-function getPermissionsSchema<T extends ZodEnum<[string, ...string[]]>>(
-  permission: T
-) {
-  const permissionsSchema = object({ permissions: array(permission) })
+function getPermissionsSchema<
+  U extends ZodRawShape,
+  T extends ZodEnum<[string, ...string[]]>
+>(schema: ZodObject<U>, permission: T) {
+  const permissionsSchema = schema.extend({ permissions: array(permission) })
 
   return permissionsSchema
 }

@@ -1,5 +1,5 @@
-import { TypeOf, enum as zenum, array } from 'zod'
-import { getListResponseBody } from '../../../../helpers'
+import { enum as zenum, TypeOf } from 'zod'
+import { getListResponseBody, getPermissionsSchema } from '../../../../helpers'
 import { school } from '../../../db'
 
 const getAllSchoolResponsePermission = zenum(['ADD'])
@@ -16,8 +16,9 @@ export const getAllSchoolsResponseSchema = school.pick({
   email_confirmed: true
 })
 
-export const getAllSchoolsResponse = getListResponseBody(
-  getAllSchoolsResponseSchema
-).extend({ permissions: array(getAllSchoolResponsePermission) })
+export const getAllSchoolsResponse = getPermissionsSchema(
+  getListResponseBody(getAllSchoolsResponseSchema),
+  getAllSchoolResponsePermission
+)
 
 export type GetAllSchoolsResponse = TypeOf<typeof getAllSchoolsResponse>

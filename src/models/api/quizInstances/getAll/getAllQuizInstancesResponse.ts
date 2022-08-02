@@ -1,5 +1,5 @@
-import { array, enum as zenum, object, TypeOf } from 'zod'
-import { getListResponseBody } from '../../../../helpers'
+import { enum as zenum, object, TypeOf } from 'zod'
+import { getListResponseBody, getPermissionsSchema } from '../../../../helpers'
 import { quizInstance } from '../../../db'
 
 const getAllQuizInstancesResponsePermission = zenum(['ADD'])
@@ -14,9 +14,10 @@ export const getAllQuizInstancesResponseSchema = object({
   index: quizInstance.shape.index
 })
 
-export const getAllQuizInstancesResponse = getListResponseBody(
-  getAllQuizInstancesResponseSchema
-).extend({ permissions: array(getAllQuizInstancesResponsePermission) })
+export const getAllQuizInstancesResponse = getPermissionsSchema(
+  getListResponseBody(getAllQuizInstancesResponseSchema),
+  getAllQuizInstancesResponsePermission
+)
 
 export type GetAllQuizInstancesResponse = TypeOf<
   typeof getAllQuizInstancesResponse

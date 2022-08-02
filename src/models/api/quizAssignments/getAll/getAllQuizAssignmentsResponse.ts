@@ -1,6 +1,15 @@
-import { number, object, TypeOf, enum as zenum, array } from 'zod'
-import { getListResponseBody } from '../../../../helpers'
+import { enum as zenum, number, object, TypeOf } from 'zod'
+import {
+  getFiltersSchema,
+  getListResponseBody,
+  getPermissionsSchema
+} from '../../../../helpers'
 import { quiz, quizAssignment } from '../../../db'
+
+export const getAllQuizAssignmentsResponseFilters = zenum(['MODE'])
+export type GetAllQuizAssignmentsResponseFilters = TypeOf<
+  typeof getAllQuizAssignmentsResponseFilters
+>
 
 export const getAllQuizAssignmentsResponsePermission = zenum(['ADD'])
 
@@ -26,9 +35,13 @@ export type GetAllQuizAssignmentsResponseSchema = TypeOf<
   typeof getAllQuizAssignmentsResponseSchema
 >
 
-export const getAllQuizAssignmentsResponse = getListResponseBody(
-  getAllQuizAssignmentsResponseSchema
-).extend({ permissions: array(getAllQuizAssignmentsResponsePermission) })
+export const getAllQuizAssignmentsResponse = getFiltersSchema(
+  getPermissionsSchema(
+    getListResponseBody(getAllQuizAssignmentsResponseSchema),
+    getAllQuizAssignmentsResponsePermission
+  ),
+  getAllQuizAssignmentsResponseFilters
+)
 
 export type GetAllQuizAssignmentsResponse = TypeOf<
   typeof getAllQuizAssignmentsResponse

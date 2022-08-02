@@ -1,4 +1,5 @@
-import { array, enum as zenum, number, TypeOf } from 'zod'
+import { enum as zenum, number, TypeOf } from 'zod'
+import { getPermissionsSchema } from '../../../../helpers'
 import { cohort, group } from '../../../db'
 
 const getGroupDetailsResponsePermission = zenum([
@@ -28,8 +29,9 @@ export type GetGroupDetailsResponseSchema = TypeOf<
   typeof getGroupDetailsResponseSchema
 >
 
-export const getGroupDetailsResponse = getGroupDetailsResponseSchema
-  .omit({ student_count: true })
-  .extend({ permissions: array(getGroupDetailsResponsePermission) })
+export const getGroupDetailsResponse = getPermissionsSchema(
+  getGroupDetailsResponseSchema.omit({ student_count: true }),
+  getGroupDetailsResponsePermission
+)
 
 export type GetGroupDetailsResponse = TypeOf<typeof getGroupDetailsResponse>

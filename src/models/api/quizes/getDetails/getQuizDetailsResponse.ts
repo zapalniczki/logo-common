@@ -1,4 +1,5 @@
-import { TypeOf, enum as zenum, array, number } from 'zod'
+import { enum as zenum, number, TypeOf } from 'zod'
+import { getPermissionsSchema } from '../../../../helpers'
 import { quiz } from '../../../db'
 
 const getQuizDetailsResponsePermission = zenum([
@@ -27,8 +28,9 @@ export type GetQuizDetailsResponseSchema = TypeOf<
   typeof getQuizDetailsResponseSchema
 >
 
-export const getQuizDetailsResponse = getQuizDetailsResponseSchema.extend({
-  permissions: array(getQuizDetailsResponsePermission)
-})
+export const getQuizDetailsResponse = getPermissionsSchema(
+  getQuizDetailsResponseSchema,
+  getQuizDetailsResponsePermission
+)
 
 export type GetQuizDetailsResponse = TypeOf<typeof getQuizDetailsResponse>

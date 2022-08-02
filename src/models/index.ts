@@ -1,4 +1,13 @@
-import { number, object, TypeOf, enum as zenum, boolean, undefined } from 'zod'
+import {
+  number,
+  object,
+  TypeOf,
+  enum as zenum,
+  boolean,
+  undefined,
+  string,
+  array
+} from 'zod'
 import { admin, school, student, teacher } from './db'
 
 export const paginator = object({
@@ -65,6 +74,18 @@ export const userSchema = object({
     .or(student.shape.id)
 })
 export type UserSchema = TypeOf<typeof userSchema>
+
+export const filterValue = object({
+  value: string(),
+  inOn: boolean()
+})
+export type FilterValue = TypeOf<typeof filterValue>
+
+export const filter = object({
+  key: string(),
+  options: array(filterValue)
+})
+export type Filter = TypeOf<typeof filter>
 
 export * from './db'
 export * from './dbEnums'
