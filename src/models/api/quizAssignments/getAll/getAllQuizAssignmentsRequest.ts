@@ -21,7 +21,16 @@ export type GetAllQuizAssignmentsRequestSortingQuery = TypeOf<
   typeof getAllQuizAssignmentsRequestSortingQuery
 >
 
-const getAllQuizAssignmentsRequestSchema = getUserSchema(object({}))
+export const getAllQuizAssignmentsRequestFilters = object({
+  mode: zenum(['EXERCISE', 'HOMEWORK', 'TEST']).optional()
+})
+export type GetAllQuizAssignmentsRequestFilters = TypeOf<
+  typeof getAllQuizAssignmentsRequestFilters
+>
+
+const getAllQuizAssignmentsRequestSchema = getUserSchema(
+  getAllQuizAssignmentsRequestFilters
+)
 
 export const getAllQuizAssignmentsRequest = getQueryParams(
   getAllQuizAssignmentsRequestSchema,
